@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your JSX code here
+
+      var reactFragment = (
+        <>
+          <div className="container">
+            <div className="row">
+              <div className="three columns">
+                <p>React is a javascript library</p>
+                <div
+                  className="main"
+                  // style attribute is assigned an object but prior to which you need to encapsulate object with curly braces in order to get into JS mode/ INTERPOLATION TECHNIQUE?
+                  style={{
+                    "box-shadow": "0 0 3px rgba(0,0,0,.2)",
+                    padding: "1em",
+                    "border-radius": "5px"
+                  }}
+                >
+                  <p>Click the below button to alert 'Hello'</p>
+                  <button
+                    className="button-primary"
+                    // can't directly call alert method. Let eventHandler handle it using callback.
+                    // when writing JSX, event names should be written in camelCase
+                    onClick={() => alert("Hello")}
+                  >
+                    Alert Hello
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      );
+      var root = document.getElementById("root");
+      ReactDOM.render(reactFragment, root);
+    </script>
+  </body>
+</html>
